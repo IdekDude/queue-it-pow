@@ -15,7 +15,7 @@ getHash(input, zeroCount);
 Any and all pull requests are welcome. 
 
 ## TODO
-- [ ] Add Python
+- [X] Add Python
 - [ ] Add Golang
 - [X] Add TS
 

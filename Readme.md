@@ -10,6 +10,12 @@ let zeroCount = 4;
 getHash(input, zeroCount);
 ```
 
+```python
+input = "f02b931c-52f0-4507-9406-f1221678dc16"
+zeroCount = 4
+getHash(input, zeroCount)
+```
+
 ## Contributing
 
 Any and all pull requests are welcome. 

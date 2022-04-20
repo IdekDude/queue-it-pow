@@ -22,7 +22,7 @@ Any and all pull requests are welcome.
 
 ## TODO
 - [X] Add Python
-- [ ] Add Golang
+- [X] Add Golang
 - [X] Add TS
 
 ## Credits

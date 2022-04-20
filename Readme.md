@@ -25,6 +25,11 @@ Any and all pull requests are welcome.
 - [ ] Add Golang
 - [X] Add TS
 
+## Credits
+Python - [Cutty72](https://github.com/Cutty72) ([@72_cutty](https://twitter.com/72_cutty))
+<br>
+JS/TS - [IdekDude](https://github.com/IdekDude) ([@IdekDudeTbh](https://twitter.com/IdekDudeTbh))
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

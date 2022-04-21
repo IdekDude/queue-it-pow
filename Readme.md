@@ -49,7 +49,9 @@ Any and all pull requests are welcome.
 Python/Rust - [Cutty72](https://github.com/Cutty72) ([@72_cutty](https://twitter.com/72_cutty))
 <br>
 JS/TS - [IdekDude](https://github.com/IdekDude) ([@IdekDudeTbh](https://twitter.com/IdekDudeTbh))
+<br>
 C# - [LTPF](https://github.com/LTPF1337) ([@ltpf_dev](https://twitter.com/ltpf_dev))
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

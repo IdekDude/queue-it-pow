@@ -1,6 +1,6 @@
 # Queue-it-Pow
 
-Queue It POW Solution in JS
+Queue It POW Solution in Various Langauges
 
 ## Usage
 

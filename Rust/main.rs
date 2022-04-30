@@ -1,9 +1,13 @@
-use crypto::{digest::Digest, sha2};
-
+use sha2::{Digest};
 use base64;
-use serde_derive::Deserialize;
-use serde_derive::Serialize;
+use serde::Deserialize;
+use serde::Serialize;
 use serde_json;
+
+fn main() {
+    let hash = get_hash("6fc83185-3a40-4737-a317-84f46405fa1f", 2);
+    println!("{}", hash);
+}
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -36,7 +40,7 @@ fn get_hash(input: &str, padding_length: usize) -> String {
 
 fn gen_sha256(hashme: &str) -> String {
     let mut hasher = sha2::Sha256::new();
-    hasher.input_str(hashme);
+    hasher.update(hashme.as_bytes());
 
-    return hasher.result_str();
+    format!("{:X}", hasher.finalize())
 }

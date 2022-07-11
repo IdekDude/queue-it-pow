@@ -1,15 +1,21 @@
 import hashlib
-import base64
-import json
 
+def getHash(inputString: str, paddingLen: int, runs: int):
+    results = []
+    padding = "0" * paddingLen
+    currentRuns = 0
 
-def getHash(input, zeroCount):
-    zeros = '0' * zeroCount
     postfix = 0
     while True:
         postfix += 1
-        stri = input + str(postfix)
-        encodedHash = hashlib.sha256(stri.encode()).hexdigest()
-        if encodedHash.startswith(zeros):
-            final = 10 * [{'postfix': postfix, 'hash': encodedHash}]
-            return base64.b64encode(json.dumps(final).encode('utf-8'))
+        target = (inputString + str(postfix)).encode()
+        encoded = hashlib.sha256(target).hexdigest()
+
+        if encoded.startswith(padding):
+            results.append({"postfix": postfix, "hash": encoded})
+            currentRuns += 1
+
+        if currentRuns == runs:
+            break
+    
+    return results

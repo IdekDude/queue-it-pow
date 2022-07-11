@@ -5,9 +5,10 @@ Queue It POW Solution in Various Langauges
 ## Usage
 
 ```javascript
-let input = "f02b931c-52f0-4507-9406-f1221678dc16"
-let zeroCount = 4;
-getHash(input, zeroCount);
+let input = "af085a5f-ae56-4450-8bf8-11cabf2b140a"
+let zeroCount = 3;
+let runs = 25;
+getHash(input, zeroCount, runs);
 ```
 
 ```python

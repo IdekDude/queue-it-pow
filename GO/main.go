@@ -2,39 +2,45 @@ package main
 
 import (
 	"crypto/sha256"
-	b64 "encoding/base64"
 	"encoding/hex"
-	"encoding/json"
+	"errors"
 	"strconv"
 	"strings"
 )
 
-type HashedSolution struct {
-	Hash    string `json:"hash"`
-	Postfix int    `json:"postfix"`
-}
+// Use the information from https://footlocker.queue-it.net/challengeapi/pow/challenge/{userID} to solve POW
+func getHash(inputString string, complexity, runs int) ([]QueueItPowPostFix, error) {
+	Solutions := []QueueItPowPostFix{}
+	CurrentRuns := 0
+	loop := true
+	for postfix := 0; loop; postfix++ {
+		shaObj := sha256.New()
+		shaObj.Write([]byte(inputString))
+		shaObj.Write([]byte(strconv.Itoa(postfix)))
+		hash := hex.EncodeToString(shaObj.Sum(nil))
 
-func getHash(input string, paddingLength int) string {
-	var list []HashedSolution
-	padding := strings.Repeat("0", paddingLength)
-
-	for postFix := 0; ; postFix++ {
-		str := input + strconv.Itoa(postFix)
-		hash := sha256.New()
-		hash.Write([]byte(str))
-		encodedHash := hex.EncodeToString(hash.Sum(nil))
-
-		if strings.HasPrefix(encodedHash, padding) {
-			for i := 0; i < 10; i++ {
-				list = append(list, HashedSolution{
-					Postfix: postFix,
-					Hash:    encodedHash,
-				})
-			}
-
-			jsonBytes, _ := json.Marshal(list)
-
-			return b64.StdEncoding.EncodeToString(jsonBytes)
+		if strings.HasPrefix(string(hash), strings.Repeat("0", complexity)) {
+			Solutions = append(Solutions, QueueItPowPostFix{
+				Postfix: postfix,
+				Hash:    hash,
+			})
+			CurrentRuns++
+		}
+		if CurrentRuns == runs {
+			return Solutions, nil
 		}
 	}
+	return []QueueItPowPostFix{}, errors.New("error solving pow")
+}
+
+// Postfix struct
+type QueueItPowPostFix struct {
+	Postfix int    `json:"postfix"`
+	Hash    string `json:"hash"`
+}
+
+// Solution to send in verify post
+type QueueItSolution struct {
+	Hash []QueueItPowPostFix `json:"hash"`
+	Type string              `json:"type"`
 }

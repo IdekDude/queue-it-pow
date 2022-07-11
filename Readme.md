@@ -20,8 +20,9 @@ getHash(input, zeroCount, runs)
 
 ```golang
 input := "f02b931c-52f0-4507-9406-f1221678dc16"
-zeroCount := 4
-getHash(input, zeroCount)
+zeroCount := 3
+runs := 25
+getHash(input, zeroCount, runs)
 ```
 
 ```rs

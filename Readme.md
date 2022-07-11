@@ -12,9 +12,10 @@ getHash(input, zeroCount, runs);
 ```
 
 ```python
-input = "f02b931c-52f0-4507-9406-f1221678dc16"
-zeroCount = 4
-getHash(input, zeroCount)
+input = "af085a5f-ae56-4450-8bf8-11cabf2b140a"
+zeroCount = 3
+runs = 25
+getHash(input, zeroCount, runs)
 ```
 
 ```golang

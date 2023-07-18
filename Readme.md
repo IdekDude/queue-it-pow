@@ -54,6 +54,8 @@ Python/Rust - [Cutty72](https://github.com/Cutty72) ([@72_cutty](https://twitter
 JS/TS - [IdekDude](https://github.com/IdekDude) ([@IdekDudeTbh](https://twitter.com/IdekDudeTbh))
 <br>
 C# - [LTPF](https://github.com/LTPF1337) ([@ltpf_dev](https://twitter.com/ltpf_dev))
+<br>
+Go - [KakashiHatake324](https://github.com/KakashiHatake324) ([@Rafi](https://twitter.com/rafuchiha))
 
 ## License
 
